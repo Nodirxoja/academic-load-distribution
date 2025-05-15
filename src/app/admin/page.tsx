@@ -9,7 +9,6 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Select, SelectItem, SelectTrigger, SelectContent, SelectValue } from '@/components/ui/select'
 
 import { Search, Trash2, Check, Edit, BookOpen, Users, User, Clock } from 'lucide-react'
-import { Eye, EyeOff } from 'lucide-react'
 import {
   Dialog,
   DialogTrigger,
@@ -164,13 +163,7 @@ const filteredStudents = students.filter(
     s.full_name?.toLowerCase().includes(search.toLowerCase()) ||
     s.group_name?.toLowerCase().includes(search.toLowerCase())
 )
-const handleStudentUpdate = async (id: string, updated: any) => {
-  const { error } = await supabase.from('students').update(updated).eq('id', id)
-  if (!error) {
-    const { data } = await supabase.from('students').select('*')
-    setStudents(data || [])
-  }
-}
+
 const filteredGroups = groups.filter((g) =>
   g.name.toLowerCase().includes(groupSearch.toLowerCase())
 );
