@@ -83,7 +83,7 @@ const [studentForm, setStudentForm] = useState({
   address_perm: '',
   address_temp: ''
 })
-const [showPass, setShowPass] = useState(false)
+const [showPass] = useState(false)
 const [students, setStudents] = useState<any[]>([])
 const [search, setSearch] = useState('')
 
@@ -149,7 +149,7 @@ const handleRoleChange = async (userId: string, newRole: string) => {
 }
 useEffect(() => {
   const fetchStudents = async () => {
-const { data, error } = await supabase.from('student_with_email').select('*')
+const { data } = await supabase.from('student_with_email').select('*')
     if (data) setStudents(data)
   }
   fetchStudents()
@@ -238,9 +238,6 @@ const handleAddCourse = async () => {
   const { subject_id, group_id, teacher_id } = form
   if (!subject_id || !group_id || !teacher_id) return
 
-  // 👇 Get the selected subject and its default_hours
-  const selectedSubject = subjects.find((s) => s.id === subject_id)
-  const hours = selectedSubject?.default_hours ?? 0
 
   const { error } = await supabase.from('courses').insert({
     subject_id,

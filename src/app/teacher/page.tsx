@@ -37,7 +37,6 @@ export default function TeacherPage() {
   const [courses, setCourses] = useState<any[]>([])
   const [groups, setGroups] = useState<any[]>([])
   const [students, setStudents] = useState<any[]>([])
-  const [selectedGroup, setSelectedGroup] = useState<any | null>(null)
   const [selectedCourse, setSelectedCourse] = useState<any | null>(null)
   const [lessons, setLessons] = useState<{ [key: string]: any[] }>({})
   const [newLesson, setNewLesson] = useState<{ title: string; content: string }>({ title: '', content: '' })
