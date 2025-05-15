@@ -13,7 +13,7 @@ export default function LoginPage() {
     const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
       if (session) {
         // user just logged in via email/password
-        router.push('/auth/callback')
+        router.push('https://academic-load-distribution.vercel.app/auth/callback')
       }
     })
 
