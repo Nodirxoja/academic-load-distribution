@@ -31,7 +31,7 @@ export default function LoginPage() {
           appearance={{ theme: ThemeSupa }}
           providers={['google']}
           theme="light"
-          redirectTo={`https://academic-load-distribution.vercel.app/auth/callback`}
+          redirectTo={`auth/callback`}
         />
       </div>
     </div>
