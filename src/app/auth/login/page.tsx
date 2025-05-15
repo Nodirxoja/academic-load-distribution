@@ -16,6 +16,7 @@ export default function LoginPage() {
         router.push('https://academic-load-distribution.vercel.app/auth/callback')
       }
     })
+    
 
     return () => {
       authListener?.subscription.unsubscribe()
